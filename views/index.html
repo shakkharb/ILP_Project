@@ -1,0 +1,47 @@
+<!-- localhost:9002/ -->
+
+<html>
+    <head>
+        <script src="/socket.io/socket.io.js"></script>
+        
+    </head>
+    <body>
+        <h1>Chat</h1>
+        <p>
+            <input id="nickname" type="text"/>
+            <button id="send-nickname">Add user</button>
+        </p>
+        <p>
+            <textarea id="messages"></textarea>
+        </p>
+        <p>
+            <input id="message" type="text"/>
+            <button id="send-message">Send</button>
+        </p>
+        <p id="userlist">
+            No users are active.
+        </p>
+
+        <script>
+            const socket = io.connect();
+
+            socket.on("userloggedin", (data)=>{
+                const users = data.join(", ");
+                document.getElementById("userlist").innerHTML = users;
+            })
+
+            socket.on("chat", ({ sentBy, message })=>{
+                document.getElementById("messages").value = (document.getElementById("messages").value + "\n" + `${sentBy.name}: ${message}` + "\n");
+            })
+
+            document.getElementById("send-nickname").addEventListener("click", ()=>{
+                socket.emit("signin", document.getElementById("nickname").value)
+            });
+
+            document.getElementById("send-message").addEventListener("click", ()=>{
+                socket.emit("chat", document.getElementById("message").value)
+            })
+
+        </script>
+    </body>
+</html>

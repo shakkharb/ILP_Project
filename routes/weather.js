@@ -6,13 +6,13 @@ const jwt = require("jsonwebtoken");
 
 const Config = require("../config")
 
-Router.get("/", (req, res) => {
-    res.render("weather")
-})
+// Router.get("/", (req, res) => {
+//     res.render("weather")
+// })
 
-Router.get("/location", (req, res) => {
-    res.render("location")
-})
+// Router.get("/location", (req, res) => {
+//     res.render("location")
+// })
 
 Router.get("/weather/:lat/:long", (req, res) => {
     let request = require('request');

@@ -1,10 +1,21 @@
 const express = require("express");
+const app = express();
 const UserRoutes = require("./routes/user");
 const HomeRoutes = require("./routes/home");
 const WeatherRoutes = require("./routes/weather");
 const application = express();
 const path = require("path")
 const bodyParser = require("body-parser");
+
+///////////////////////////////////////////////////
+
+const ejs = require("ejs");
+const expressGraphQL = require("express-graphql");
+const schema = require("./schema");
+const Resolvers = require("./resolvers")
+const news = require("./routes/news")
+
+///////////////////////////////////////////////////////
 
 application.set("view engine", "ejs");
 application.set("views", path.join(__dirname, "./views"));
@@ -18,6 +29,17 @@ application.use(bodyParser.urlencoded({ extended : true }))
 application.use("/user", UserRoutes);
 application.use("/home", HomeRoutes);
 application.use("/weather", WeatherRoutes);
+
+/////////////////////////////////////
+app.use("/graphql", expressGraphQL({
+    schema : schema,
+    graphiql : true,
+    rootValue : Resolvers,
+    
+}))
+
+app.use("/news", news);
+///////////////////////////////////////////////////
 
 // default export
 module.exports = application;

@@ -3,6 +3,9 @@ const app = express();
 const UserRoutes = require("./routes/user");
 const HomeRoutes = require("./routes/home");
 const WeatherRoutes = require("./routes/weather");
+
+const NewsRoutes = require("./routes/news");
+
 const application = express();
 const path = require("path")
 const bodyParser = require("body-parser");
@@ -29,6 +32,7 @@ application.use(bodyParser.urlencoded({ extended : true }))
 application.use("/user", UserRoutes);
 application.use("/home", HomeRoutes);
 application.use("/weather", WeatherRoutes);
+application.use("/news", NewsRoutes);
 
 /////////////////////////////////////
 app.use("/graphql", expressGraphQL({
@@ -38,7 +42,6 @@ app.use("/graphql", expressGraphQL({
     
 }))
 
-app.use("/news", news);
 ///////////////////////////////////////////////////
 
 // default export

@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <h1 style="text-align: center;">News List</h1>
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+        }
+
+        </style>
+</head>
+
+<body>
+    <h3>Latest News...</h3>
+    <table id>
+        <thead>
+            <tr>
+                <th>Order ID > _id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>URL</th>
+                <th>Image URL</th>
+                <th>Created On</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% posts.forEach(function(post){ %>
+        <tr><th><%= post._id %></th>
+            <th><%= post.title %></th>
+            <th><%= post.description %></th>
+            <th><%= post.url %></th>
+            <th><%= post.urltoimage %></th>
+            <th><%= post.createdOn %></th>
+        </tr>
+        <%});%>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

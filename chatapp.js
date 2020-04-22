@@ -1,5 +1,3 @@
-//////// npm start ////////////////////////
-
 import express from "express";
 import path from "path";
 import http from "http";

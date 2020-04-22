@@ -6,7 +6,7 @@ const WeatherRoutes = require("./routes/weather");
 const AboutusRoutes = require("./routes/aboutus");
 
 const NewsRoutes = require("./routes/news");
-
+const ContactusRoutes = require("./routes/contactus");
 const application = express();
 const path = require("path")
 const bodyParser = require("body-parser");
@@ -17,7 +17,6 @@ const ejs = require("ejs");
 const expressGraphQL = require("express-graphql");
 const schema = require("./schema");
 const Resolvers = require("./resolvers")
-const news = require("./routes/news")
 
 ///////////////////////////////////////////////////////
 
@@ -35,7 +34,7 @@ application.use("/home", HomeRoutes);
 application.use("/weather", WeatherRoutes);
 application.use("/news", NewsRoutes);
 application.use("/aboutus", AboutusRoutes);
-
+application.use("/contactus", ContactusRoutes);
 /////////////////////////////////////
 app.use("/graphql", expressGraphQL({
     schema : schema,

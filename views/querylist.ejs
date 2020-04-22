@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <h1 style="text-align: center;">Queries</h1>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+        }
+
+        table.fixed { table-layout:fixed; }
+        table.fixed th { overflow: hidden; }
+
+        </style>
+</head>
+
+<body>
+    <h3>User Queries...</h3>
+    <table class="fixed", id="querylist">
+        <thead>
+            <tr>
+                <th>User Email</th>
+                <th>Query</th>
+                <th>Submitted On</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% posts.forEach(function(post){ %>
+        <tr><th><%= post.qemail %></th>
+            <th><%= post.query %></th>
+            <th><%= post.submittedOn %></th>
+        </tr>
+        <%});%>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#querylist').DataTable();
+        });
+    </script>
+
+</body>
+
+</html>

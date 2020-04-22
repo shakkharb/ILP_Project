@@ -1,14 +1,33 @@
-<!-- localhost:6969/user/signup -->
-
 <html>
-    <head>
-        
-    </head>
-    <body>
-        Weather page. Try go to /location or /weather.
-        
-    </body>
+    <head></head>
+    <!-- <p>Click the button to get your coordinates.</p>
+    <button onclick="getLocation()">Try It</button> -->
+    <body onload="getLocation()"></body>
+    <p id="demo"></p>
+    <p id="temp"></p>
+
     <script>
-        
+    var x = document.getElementById("demo");
+    
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+      sendtourl = "/weather/"+position.coords.latitude+"/"+position.coords.longitude
+      fetch(sendtourl).then((res)=>{
+          return res.json()
+      }).then((data)=>{
+        document.getElementById("temp").innerText=data.main.temp
+      })
+    }
+
+
     </script>
+    </body>
 </html>

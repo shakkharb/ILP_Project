@@ -3,6 +3,11 @@
 <head>
     <h1 style="text-align: center;">News List</h1>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
     <style>
         table {
           font-family: arial, sans-serif;
@@ -16,26 +21,27 @@
           padding: 8px;
         }
 
+        table.fixed { table-layout:fixed; }
+        table.fixed th { overflow: hidden; }
+
         </style>
 </head>
 
 <body>
     <h3>Latest News...</h3>
-    <table id>
+    <table class="fixed", id="newslist">
         <thead>
             <tr>
-                <th>Order ID > _id</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>URL</th>
                 <th>Image URL</th>
-                <th>Created On</th>
+                <th>Published On</th>
             </tr>
         </thead>
         <tbody>
         <% posts.forEach(function(post){ %>
-        <tr><th><%= post._id %></th>
-            <th><%= post.title %></th>
+        <tr><th><%= post.title %></th>
             <th><%= post.description %></th>
             <th><%= post.url %></th>
             <th><%= post.urltoimage %></th>
@@ -44,6 +50,12 @@
         <%});%>
         </tbody>
     </table>
+
+    <script>
+        $(document).ready(function () {
+            $('#newslist').DataTable();
+        });
+    </script>
 
 </body>
 

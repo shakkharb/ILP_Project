@@ -3,6 +3,7 @@ const app = express();
 const UserRoutes = require("./routes/user");
 const HomeRoutes = require("./routes/home");
 const WeatherRoutes = require("./routes/weather");
+const AboutusRoutes = require("./routes/aboutus");
 
 const NewsRoutes = require("./routes/news");
 
@@ -33,6 +34,7 @@ application.use("/user", UserRoutes);
 application.use("/home", HomeRoutes);
 application.use("/weather", WeatherRoutes);
 application.use("/news", NewsRoutes);
+application.use("/aboutus", AboutusRoutes);
 
 /////////////////////////////////////
 app.use("/graphql", expressGraphQL({

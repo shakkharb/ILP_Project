@@ -6,6 +6,8 @@ const ApplicationSchema = buildSchema(`
         newses : [News],
         news(title : String) : News
         contactus(qemail : String) : Contactus
+        sportses : [Sports],
+        sports(title : String) : Sports
     }
 
     type News {
@@ -26,6 +28,7 @@ const ApplicationSchema = buildSchema(`
     type Mutation {
         addNews(title : String, description : String, url : String, urltoimage : String) : News
         contactUs(qemail : String, query : String) : Contactus
+        addSports(title : String, description : String, url : String, urltoimage : String) : Sports
     }
 
     type Sports {

@@ -4,32 +4,37 @@
     <h1 style="text-align: center;">News List</h1>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
     <style>
         table {
-          font-family: arial, sans-serif;
-          border-collapse: collapse;
-          width: 100%;
-        }
-        
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
         }
 
-        table.fixed { table-layout:fixed; }
-        table.fixed th { overflow: hidden; }
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
 
-        </style>
+        table.fixed {
+            table-layout: fixed;
+        }
+
+        table.fixed th {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
     <h3>Latest News...</h3>
-    <table class="fixed", id="newslist">
+    <table class="fixed" , id="newslist">
         <thead>
             <tr>
                 <th>Title</th>
@@ -40,14 +45,15 @@
             </tr>
         </thead>
         <tbody>
-        <% posts.forEach(function(post){ %>
-        <tr><th><%= post.title %></th>
-            <th><%= post.description %></th>
-            <th><%= post.url %></th>
-            <th><%= post.urltoimage %></th>
-            <th><%= post.createdOn %></th>
-        </tr>
-        <%});%>
+            <% posts.forEach(function(post){ %>
+            <tr>
+                <th><%= post.title %></th>
+                <th><%= post.description %></th>
+                <th><%= post.url %></th>
+                <th><%= post.urltoimage %></th>
+                <th><%= post.createdOn %></th>
+            </tr>
+            <%});%>
         </tbody>
     </table>
 

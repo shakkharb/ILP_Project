@@ -1,97 +1,81 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html>  
+<html>  
+<head>  
 
-<head>
-    <meta charset="utf-8" />
-    <title>My Slider</title>
-    <style type="text/css">
-        ul#horizontal-list {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333333;
-        }
 
-        ul#horizontal-list li {
-            float: left;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-        ul#horizontal-list li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
 
-        ul#footList {
-            list-style: none;
-        }
 
-        .showSlide {
-            display: none
-        }
+    <meta charset="utf-8" />  
+    <title>My Slider</title>  
+    <style type="text/css">   
+        .showSlide {  
+            display: none  
+        }  
+            .showSlide img {  
+                width: 100%; 
+                max-height: 200px;
+                max-width: 400px;
+            }  
+        .slidercontainer {  
+          width: 100%; 
+            max-width: 400px; 
+            max-height: 200px; 
+            position: relative;  
+            margin: auto;  
+        }  
+        .left, .right {  
+            cursor: pointer;  
+            position: absolute;  
+            top: 50%;  
+            width: auto;  
+            padding: 16px;  
+            margin-top: -22px;  
+            color: white;  
+            font-weight: bold;  
+            font-size: 18px;  
+            transition: 0.6s ease;  
+            border-radius: 0 3px 3px 0;  
+        }  
+        .right {  
+            right: 0;  
+            border-radius: 3px 0 0 3px;  
+        }  
+            .left:hover, .right:hover {  
+                background-color: rgba(115, 115, 115, 0.8);  
+            }  
+        .content {  
+            color: #eff5d4;  
+            font-size: 30px;  
+            padding: 8px 12px;  
+            position: absolute;  
+            top: 10px;  
+            width: 100%;  
+            text-align: center;  
+        }  
+        .active {  
+            background-color: #717171;  
+        }  
 
-        .showSlide img {
-            width: 100%;
-            max-height: 200px;
-            max-width: 400px;
-        }
+        .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
 
-        .slidercontainer {
-            max-width: 400px;
-            max-height: 200px;
-            position: relative;
-            margin: auto;
-        }
+        
 
-        .left,
-        .right {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-        }
-
-        .right {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .left:hover,
-        .right:hover {
-            background-color: rgba(115, 115, 115, 0.8);
-        }
-
-        .content {
-            color: #eff5d4;
-            font-size: 30px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .active {
-            background-color: #717171;
-        }
-    </style>
-    <ul id="horizontal-list">
-        <li><a href="/home">Home</a></li>
-        <li><a href="/sports">Sports</a></li>
-        <li><a href="/contactUs">Contact Us</a></li>
-        <li><a href="/aboutUs">About Us</a></li>
-    </ul>
-
+    </style>  
 <body onload="getLocation()"></body>
 <p id="demo"></p>
 <p id="temp"></p>
@@ -99,6 +83,38 @@
 </head>
 
 <body>
+
+
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Update 24x7 News</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/sports">Sports</a></li>
+          <li><a href="/aboutus">About</a></li>
+          <li><a href="/contactus">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
 
     <script>
         var x = document.getElementById("demo");
@@ -112,13 +128,13 @@
         }
 
         function showPosition(position) {
-            x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-            sendtourl = "/weather/" + position.coords.latitude + "/" + position.coords.longitude
-            fetch(sendtourl).then((res) => {
-                return res.json()
-            }).then((data) => {
-                document.getElementById("temp").innerText = data.main.temp
-            })
+          x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+          sendtourl = "/weather/"+position.coords.latitude+"/"+position.coords.longitude
+          fetch(sendtourl).then((res)=>{
+              return res.json()
+          }).then((data)=>{
+            document.getElementById("demo").innerText= "The temperature is " + data.main.temp + " in " + data.name
+          })
         }
 
     </script>
@@ -158,7 +174,13 @@
             }
             slides[slide_index - 1].style.display = "block";
         }  
-    </script>
-</body>
+    </script>  
+  
 
+  <footer class="container-fluid text-center">
+    <p>Footer Text</p>
+  </footer>
+
+
+</body>  
 </html>

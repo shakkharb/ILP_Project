@@ -1,10 +1,10 @@
 homepage: localhost:9001/home
 signup: localhost:9001/user/signup
 login: localhost:9001/user/login
-weather: localhost:9001/weather/location
+weather: localhost:9001/weather
 add news: localhost:9001/news
 news list: localhost:9001/newslist
 about us: localhost:9001/aboutus
 contact us: localhost:9001/contactus
-query list: localhost:9001/querylist
+query list: localhost:9001/contactus/querylist
 chat app: localhost:9002/index.html

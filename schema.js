@@ -14,9 +14,7 @@ const ApplicationSchema = buildSchema(`
         url : String,
         urltoimage : String,
         _id : String
-                
     }
-
     
     type Contactus {
         qemail : String,
@@ -30,6 +28,13 @@ const ApplicationSchema = buildSchema(`
         contactUs(qemail : String, query : String) : Contactus
     }
 
+    type Sports {
+        title : String,
+        description : String,
+        url : String,
+        urltoimage : String,
+        _id : String
+    }
 `);
 
 module.exports = ApplicationSchema;

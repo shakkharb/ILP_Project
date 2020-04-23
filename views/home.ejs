@@ -1,43 +1,30 @@
-<!-- 
-<html>
-    <head><h3>This will be our home/main customer frontend page</h3>
-    
-        <style>
-        </style>
-    
-    </head>
-    <body>
-        <p> <!DOCTYPE html>
-            <html>
-            <body>
-            
-            <h2>Links</h2>
-
-            <p><a href="/user/signup">User Signup</a> is a link to User Signup (ADMIN)....</p>
-
-            <p><a href="/user/login">User Login</a> is a link to User Login (ADMIN)....</p>
-
-            <p><a href="/news">Add News</a> is a link to Add News (ADMIN)....</p>
-
-            <p><a href="/news/newslist">News List</a> is a link to see News List (ADMIN)....</p>
-            
-            <p><a href="/weather/location">Local Weather</a> is a link to the weather app... </p>
-               
-            <p><a href="localhost:9002/">Chat</a> is a link to the chat app....go to address bar & hit enter</p>
-            
-            </body>
-            </html>
-            </p>
-    </body>
-    <footer></footer>
-</html> -->
-
 <!DOCTYPE html>  
 <html>  
 <head>  
     <meta charset="utf-8" />  
     <title>My Slider</title>  
-    <style type="text/css">   
+    <style type="text/css">
+            ul#horizontal-list{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+        ul#horizontal-list li {
+            float: left;
+        }
+        ul#horizontal-list li a{
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        ul#footList{
+            list-style: none;
+        }
+   
         .showSlide {  
             display: none  
         }  
@@ -86,7 +73,20 @@
         }  
 
     </style>  
-
+    <ul id="horizontal-list">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/sports">Sports</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/aboutUs">About Us</a></li>
+    
+    
+        <li><a href="/user/signup">User Signup</a></li>
+        <li><a href="/user/login">User Login</a></li>
+        <li><a href="/weather/location">Local Weather</a></li>
+        
+        <li><a href="localhost:9002/">Chat</a></li>
+    </ul>
+    
 <body onload="getLocation()"></body>
 <p id="demo"></p>
 <p id="temp"></p>

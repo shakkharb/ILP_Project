@@ -4,4 +4,7 @@ login: localhost:9001/user/login
 weather: localhost:9001/weather/location
 add news: localhost:9001/news
 news list: localhost:9001/newslist
+about us: localhost:9001/aboutus
+contact us: localhost:9001/contactus
+query list: localhost:9001/querylist
 chat app: localhost:9002/index.html

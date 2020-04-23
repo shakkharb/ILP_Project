@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const NewsSchema = new Schema({
     title : String,
     description : String, 
-    url : String,
     urltoimage : String,
     createdOn : { type : Date, default : Date.now },
 })

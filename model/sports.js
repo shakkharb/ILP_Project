@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 const SportsSchema = new Schema({
     stitle: String,
     sdescription : String,
-    surl : String,
     surltoimage : String,
     screatedOn : {type : Date, default : Date.now },
 })

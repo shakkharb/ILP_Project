@@ -1,7 +1,41 @@
-<html>
+<!DOCTYPE html>  
+<html> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Update 24x7 News</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="http://localhost:9001/home">Home</a></li>
+          <li class="active"><a href="#">Sports</a></li>
+          <li><a href="http://localhost:9001/aboutus">About</a></li>
+          <li><a href="http://localhost:9001/contactus">Contact</a></li>
+          <div class = "weather"><li style="text-align: center;"><p id="demo"></p></li></div>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://localhost:9002/index.html">Chat</a></li>
+          <li><a href="http://localhost:9001/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 
 <head>
     <h1 style="text-align: center;">Sports News</h1>
+    
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -12,8 +46,21 @@
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
     <style>
+      .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+    footer {
+        background-color: #f2f2f2;
+      padding: 25px;
+      position:absolute;
+       bottom:0;
+       width: 100%;
+  }
     </style>
 </head>
+
 
 <body>
     <h3>Latest Sports News...</h3>
@@ -30,5 +77,9 @@
     </div>
 
 </body>
+
+<footer class="container-fluid text-center">
+  <a href="http://localhost:9001/aboutus">Developed by team HISSS</a>
+</footer>
 
 </html>

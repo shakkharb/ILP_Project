@@ -17,7 +17,6 @@ function AddNews(obj, args, context, info)
         const News = new NewsModel({
             title : obj.title,
             description : obj.description,
-            url : obj.url,
             urltoimage : obj.urltoimage
         })
     

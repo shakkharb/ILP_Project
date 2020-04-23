@@ -13,7 +13,6 @@ const ApplicationSchema = buildSchema(`
     type News {
         title : String,
         description : String,
-        url : String,
         urltoimage : String,
         _id : String
                 
@@ -22,7 +21,6 @@ const ApplicationSchema = buildSchema(`
     type Sports {
         stitle : String,
         sdescription : String,
-        surl : String,
         surltoimage : String,
         _id : String
     }
@@ -36,8 +34,8 @@ const ApplicationSchema = buildSchema(`
     }
 
     type Mutation {
-        addNews(title : String, description : String, url : String, urltoimage : String) : News
-        addSports(stitle : String, sdescription : String, surl : String, surltoimage : String) : Sports
+        addNews(title : String, description : String, urltoimage : String) : News
+        addSports(stitle : String, sdescription : String, surltoimage : String) : Sports
         contactUs(qemail : String, query : String) : Contactus
     }
 

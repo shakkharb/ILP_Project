@@ -33,4 +33,18 @@ Router.post("/", (req, res)=>{
         }
 });
 
+// delete News
+Router.get("newslist/:id", function(req, res) {
+    const requestedId = req.params.id;
+    // update News
+    NewsModel.findByIdAndDelete(requestedId, function(err, data){
+        if(err)
+        {
+            console.error(err);
+        }
+      })
+  
+      res.redirect("news/newslist");
+    });
+
 module.exports = Router;

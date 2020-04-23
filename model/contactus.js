@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const ContactusSchema = new Schema({
-    qemail : String,
+    qemail : { type : String, unique : true},
     query : String, 
     submittedOn : { type : Date, default : Date.now },
 })

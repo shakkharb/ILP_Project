@@ -7,12 +7,12 @@ const {
 
 
 Router.get("/", (req, res) => {
-    res.render("add-news", {});
+    res.render("add-sports", {});
 });
 
-Router.get("/", (req, res) => {
+Router.get("/sportslist", (req, res) => {
     SportsModel.find().then((response) => {
-        res.render("sports", {
+        res.render("sportslist", {
             posts: response
         });
     })

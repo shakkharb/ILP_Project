@@ -7,5 +7,6 @@ news list: localhost:9001/newslist
 about us: localhost:9001/aboutus
 contact us: localhost:9001/contactus
 query list: localhost:9001/contactus/querylist
-sports: localhost:9001/sports
+add sports: localhost:9001/sports
+sports list: localhost:9001/sportslist
 chat app: localhost:9002/index.html

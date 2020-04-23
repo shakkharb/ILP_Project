@@ -10,6 +10,11 @@ Router.get("/", (req, res) => {
     res.send([])
 })
 
+Router.get("/userlist", (req, res)=>{
+    UserModel.find().then((response)=>{
+        res.render("userlist", { posts : response });
+    })
+});
 
 Router.get("/signup", (req, res) => {
     res.render("signup")

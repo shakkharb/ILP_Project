@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
+
 const UserRoutes = require("./routes/user");
 const HomeRoutes = require("./routes/home");
 const WeatherRoutes = require("./routes/weather");
 const AboutusRoutes = require("./routes/aboutus");
-
 const NewsRoutes = require("./routes/news");
+const SportsRoutes = require("./routes/sports");
 const ContactusRoutes = require("./routes/contactus");
+
 const application = express();
 const path = require("path")
 const bodyParser = require("body-parser");
@@ -33,6 +35,7 @@ application.use("/user", UserRoutes);
 application.use("/home", HomeRoutes);
 application.use("/weather", WeatherRoutes);
 application.use("/news", NewsRoutes);
+application.use("/sports", SportsRoutes);
 application.use("/aboutus", AboutusRoutes);
 application.use("/contactus", ContactusRoutes);
 /////////////////////////////////////

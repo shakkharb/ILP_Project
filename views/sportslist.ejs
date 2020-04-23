@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <h1 style="text-align: center;">Sports News</h1>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    <h3>Latest Sports News...</h3>
+
+    <div class="w3-panel w3-border w3-border-red">
+        
+        <% posts.forEach(function(post){ %>
+        <ul style="list-style-type:none;">
+                <li style="text-align: center;"><b><%= post.stitle %></b></li>
+                <li style="text-align: center;"><%= post.screatedOn %></li>
+                <li><%= post.sdescription %></li>
+        </ul>
+                <%});%>      
+    </div>
+
+</body>
+
+</html>

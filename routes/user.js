@@ -10,11 +10,8 @@ Router.get("/", (req, res) => {
     res.send([])
 })
 
-Router.get("/userlist", (req, res)=>{
-    UserModel.find().then((response)=>{
-        res.render("userlist", { posts : response });
-    })
-});
+
+
 
 Router.get("/signup", (req, res) => {
     res.render("signup")
@@ -22,33 +19,78 @@ Router.get("/signup", (req, res) => {
 
 // Store data in mongo.
 Router.post("/signup", async (req, res) => {
-    // res.render("signup")
+   
     const hashedPassword = bcrypt.hashSync(req.body.password, 8);
-    const User = await UserModel.create({
+    User = UserModel.create({
         username: req.body.username,
         password: hashedPassword,
         email: req.body.email,
+    },
+    function (err, user){
+            if (err) return res.status(500).send("there was a problem registering the user.")
     });
+  
     res.send({ message: "user created successfully." })
+
+
 })
+
+
+
+
+
 
 Router.get("/login", (req, res) => {
     res.render("login")
 })
 
 Router.post("/login", (req, res) => {
-
+    var mypriv = 0;
     UserModel.findOne({ email: req.body.email }, (err, user) => {
-        if (err) { return res.status(500).send({ message: "error on server." }) }
-        if (!user) { res.redirect("/user/login") };
-
+        if (err) 
+        { 
+            console.log("invalid 1")
+            return res.status(500).send({ message: "error on server." }) 
+        }
+        if (!user) { 
+            console.log("invalid 2")
+            return res.status(500).send({ message: "error on server." }) 
+        }
+        if (user == null) { 
+            console.log("invalid 3")
+            return res.status(500).send({ message: "error on server." }) 
+        }
+        var mypriv = 1;
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
 
+        console.log("")
+
         if (passwordIsValid) {
+            if(req.body.email == "admin@admin.com"){
+                const token = jwt.sign({ id : user._id }, Config.SECRET_KEY, {
+                    expiresIn : 86400
+                })
+
+                mypriv = 3
+
+                console.log("admin logged in")
+
+                res.send({ token : token })
+
+                
+            }
+            else{
             const token = jwt.sign({ id : user._id }, Config.SECRET_KEY, {
                 expiresIn : 86400
             })
+
+            mypriv = 2
             res.send({ token : token })
+            console.log("user logged in")
+
+        }
+
+
         }
         else {
             res.send({ messge : "invalid user." })
@@ -56,6 +98,7 @@ Router.post("/login", (req, res) => {
 
     })
 
+    console.log(mypriv)
 });
 
 Router.post("/whoami", (req, res)=>{

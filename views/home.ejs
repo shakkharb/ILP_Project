@@ -52,14 +52,25 @@
         .content {  
             color: #eff5d4;  
             font-size: 30px;  
-            padding: 8px 12px;  
+            padding: 80px 12px;  
             position: absolute;  
             top: 10px;  
             width: 100%;  
             text-align: center;  
-        }  
+        } 
+        .description {  
+            color: black;  
+            font-size: 14px;  
+            padding: 8px 12px;  
+            top: 10px;  
+            width: 100%;  
+            text-align: center;  
+        }   
         .active {  
             background-color: #717171;  
+        }  
+        .weather {  
+            color: white;  
         }  
 
         .navbar {
@@ -71,9 +82,9 @@
     footer {
       background-color: #f2f2f2;
       padding: 25px;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
+      position:absolute;
+       bottom:0;
+       width: 100%;
     }
 
         
@@ -81,8 +92,6 @@
     </style>  
 
 <body onload="getLocation()"></body>
-<p id="demo"></p>
-<p id="temp"></p>
 
 </head>  
 <body>  
@@ -105,9 +114,10 @@
           <li><a href="/sports">Sports</a></li>
           <li><a href="/aboutus">About</a></li>
           <li><a href="/contactus">Contact</a></li>
+          <div class = "weather"><li><p id="demo"></p></li></div>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://localhost:9002/index.html"> Chat</a></li>
+          <li><a href="http://localhost:9002/index.html">Chat</a></li>
           <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
@@ -151,7 +161,7 @@
             <a href=<%=post.url %>> 
                 <img src=<%=post.urltoimage %> </a>
             <div class="content"><%=post.title %> </div> <br>
-            
+            <div class="description"><%=post.description %> </div> 
         </div>  
         <%});%>
 
@@ -188,14 +198,12 @@
             slides[slide_index - 1].style.display = "block";  
         }  
     </script>  
-
-    
   
 
   <footer class="container-fluid text-center">
-    <p>Developed by Team HISSS</p>
+    <a href="http://localhost:9001/aboutus">Developed by team HISSS</a>
   </footer>
-
+ 
 
 </body>  
 </html>

@@ -1,23 +1,51 @@
 <style>
+    head#header{
+        border: #333333;
+        background-color: hsl(0, 0%, 20%);
+    }
 
     ul#horizontal-list{
-        min-width: 696px;
+        background-color: #333333;
         list-style: none;
         padding-top: 20px;
     }
     ul#horizontal-list li {
         display: inline;
+        color: white;
+        background-color: black;
+        text-align: center;
+        
+    }
+    ul#footList{
+        list-style: none;
     }
 </style>
 
 <html>
-    <head><ul id="horizontal-list">
+    <head id = header><ul id="horizontal-list">
+        <li><a href="/user/home">Home</a></li>
+        <li><a href="/user/Sports">Sports</a></li>
+        <li><a href="/user/contactUs">Contact Us</a></li>
+        <li><a href="/user/aboutUs">About Us</a></li>
+
+
         <li><a href="/user/signup">User Signup</a></li>
         <li><a href="/user/login">User Login</a></li>
         <li><a href="/weather/location">Local Weather</a></li>
+        
         <li><a href="localhost:9002/">Chat</a></li>
     </ul></head>
     <body>
+
+
+
+
+
     </body>
-    <footer></footer>
+    <footer>
+        <ul id="footList">
+            <li>Copyrights:2020 as per Rona Rules</li>
+            <li>Number: 555-Not-Real</li>
+        </ul>
+    </footer>
 </html>

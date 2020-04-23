@@ -1,40 +1,16 @@
-<!-- 
-<html>
-    <head><h3>This will be our home/main customer frontend page</h3>
-    
-        <style>
-        </style>
-    
-    </head>
-    <body>
-        <p> <!DOCTYPE html>
-            <html>
-            <body>
-            
-            <h2>Links</h2>
-
-            <p><a href="/user/signup">User Signup</a> is a link to User Signup (ADMIN)....</p>
-
-            <p><a href="/user/login">User Login</a> is a link to User Login (ADMIN)....</p>
-
-            <p><a href="/news">Add News</a> is a link to Add News (ADMIN)....</p>
-
-            <p><a href="/news/newslist">News List</a> is a link to see News List (ADMIN)....</p>
-            
-            <p><a href="/weather/location">Local Weather</a> is a link to the weather app... </p>
-               
-            <p><a href="localhost:9002/">Chat</a> is a link to the chat app....go to address bar & hit enter</p>
-            
-            </body>
-            </html>
-            </p>
-    </body>
-    <footer></footer>
-</html> -->
-
 <!DOCTYPE html>  
 <html>  
 <head>  
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
     <meta charset="utf-8" />  
     <title>My Slider</title>  
     <style type="text/css">   
@@ -47,6 +23,7 @@
                 max-width: 400px;
             }  
         .slidercontainer {  
+          width: 100%; 
             max-width: 400px; 
             max-height: 200px; 
             position: relative;  
@@ -85,6 +62,19 @@
             background-color: #717171;  
         }  
 
+        .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+        
+
     </style>  
 
 <body onload="getLocation()"></body>
@@ -93,6 +83,38 @@
 
 </head>  
 <body>  
+
+
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Update 24x7 News</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="/sports">Sports</a></li>
+          <li><a href="/aboutus">About</a></li>
+          <li><a href="/contactus">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/user/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
 
     <script>
         var x = document.getElementById("demo");
@@ -111,7 +133,7 @@
           fetch(sendtourl).then((res)=>{
               return res.json()
           }).then((data)=>{
-            document.getElementById("temp").innerText=data.main.temp
+            document.getElementById("demo").innerText= "The temperature is " + data.main.temp + " in " + data.name
           })
         }
     
@@ -163,5 +185,11 @@
         }  
     </script>  
   
+
+  <footer class="container-fluid text-center">
+    <p>Footer Text</p>
+  </footer>
+
+
 </body>  
-</html>   
+</html>

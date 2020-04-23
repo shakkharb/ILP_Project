@@ -1,39 +1,34 @@
-<style>
-    head#header{
-        border: #333333;
-        background-color: hsl(0, 0%, 20%);
-    }
-
-    ul#horizontal-list{
-        background-color: #333333;
-        list-style: none;
-        padding-top: 20px;
-    }
-    ul#horizontal-list li {
-        display: inline;
-        color: white;
-        background-color: black;
-        text-align: center;
-        
-    }
-    ul#footList{
-        list-style: none;
-    }
-</style>
-
+<!DOCTYPE html>
 <html>
-    <head id = header><ul id="horizontal-list">
+    <head>
+        <style>
+            ul#horizontal-list{
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333333;
+            }
+            ul#horizontal-list li {
+                float: left;
+            }
+            ul#horizontal-list li a{
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            ul#footList{
+                list-style: none;
+            }
+        </style>
+        
+        <ul id="horizontal-list">
         <li><a href="/user/home">Home</a></li>
         <li><a href="/user/Sports">Sports</a></li>
         <li><a href="/user/contactUs">Contact Us</a></li>
         <li><a href="/user/aboutUs">About Us</a></li>
-
-
-        <li><a href="/user/signup">User Signup</a></li>
-        <li><a href="/user/login">User Login</a></li>
-        <li><a href="/weather/location">Local Weather</a></li>
-        
-        <li><a href="localhost:9002/">Chat</a></li>
     </ul></head>
     <body>
 

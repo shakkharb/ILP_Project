@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const UserRoutes = require("./routes/user");
+
 const HomeRoutes = require("./routes/home");
 const WeatherRoutes = require("./routes/weather");
 const AboutusRoutes = require("./routes/aboutus");
@@ -36,7 +36,7 @@ application.use(bodyParser.urlencoded({
 }))
 
 // handling for user routes.
-application.use("/user", UserRoutes);
+
 application.use("/home", HomeRoutes);
 application.use("/weather", WeatherRoutes);
 application.use("/news", NewsRoutes);

@@ -22,7 +22,6 @@ Router.post("/addsports", (req, res) => {
         const Sports = new SportsModel({
             stitle: req.body.stitle.trim(),
             sdescription: req.body.sdescription.trim(),
-            surl: req.body.surl.trim(),
             surltoimage: req.body.surltoimage.trim()
         })
         Sports.save();

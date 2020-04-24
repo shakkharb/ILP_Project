@@ -52,11 +52,11 @@ Router.post("/login", (req, res) => {
             console.log("invalid 1")
             return res.status(500).send({ message: "error on server." }) 
         }
-        if (!user) { 
+        else if (!user) { 
             console.log("invalid 2")
             return res.status(500).send({ message: "error on server." }) 
         }
-        if (user == null) { 
+        else if (user == null) { 
             console.log("invalid 3")
             return res.status(500).send({ message: "error on server." }) 
         }

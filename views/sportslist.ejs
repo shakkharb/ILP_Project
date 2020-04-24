@@ -46,22 +46,108 @@
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <style>
+    <style type="text/css">   
+      .showSlide {  
+          display: none;
+                }  
+          .showSlide img {  
+              width: 100%; 
+              max-height: 200px;
+              max-width: 400px;
+          }  
+      .slidercontainer {  
+        width: 100%; 
+          max-width: 400px; 
+          max-height: 200px; 
+          position: relative;
+          margin: auto;  
+      }  
+      .left, .right {  
+          cursor: pointer;  
+          position: absolute;  
+          top: 50%;  
+          width: auto;  
+          padding: 16px;  
+          margin-top: -22px;  
+          color: white;  
+          font-weight: bold;  
+          font-size: 18px;  
+          transition: 0.6s ease;  
+          border-radius: 0 3px 3px 0;  
+      }  
+      .right {  
+          right: 0;  
+          border-radius: 3px 0 0 3px;  
+      }  
+          .left:hover, .right:hover {  
+              background-color: rgba(115, 115, 115, 0.8);  
+          }  
+      .content {  
+          color: #eff5d4;  
+          font-size: 30px;  
+          padding: 80px 12px;  
+          position: absolute;  
+          top: 10px;  
+          width: 100%;  
+          text-align: center;  
+      } 
+      .description {  
+          color: black;  
+          font-size: 14px;  
+          padding: 8px 12px;  
+          top: 10px;  
+          width: 100%;  
+          text-align: center;  
+      }   
+      .active {  
+          background-color: #717171;  
+      }  
+      .weather {  
+          color: white;  
+      }  
+
       .navbar {
     margin-bottom: 0;
     border-radius: 0;
   }
-
-    footer {
-        background-color: #f2f2f2;
-      padding: 25px;
-      position:absolute;
-       bottom:0;
-       width: 100%;
+  
+  .bottom{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    border: 3px solid #73AD21;
+    padding: 10px;
   }
-    </style>
+
+      /* Add a gray background color and some padding to the footer */
+      footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+    position:relative;
+     bottom:0;
+     width: 100%;
+  }
+
+  </style>
 </head>
 
+<article class="slidercontainer", style="display: inline-block;">  
+  <% posts.forEach(function(post){ %>
+    <div class="showSlide"> 
+      <a><img src=<%=post.surltoimage %> </a>
+      <div class="content"><%=post.stitle %> </div> <br>
+  </div> 
+  <!--<div class="showSlide"> 
+      <img src=<%= post.surltoimage %>
+  </div>-->  
+  <%});%>
+
+  <!-- Navigation arrows -->  
+  <a class="left" onclick="nextSlide(-1)">❮</a>  
+  <a class="right" onclick="nextSlide(1)">❯</a>  
+  
+  
+</article> 
 
 <body>
     <h3>Latest Sports News...</h3>
@@ -78,6 +164,30 @@
     </div>
 
 </body>
+<script type="text/javascript">  
+        var slide_index = 1;  
+        displaySlides(slide_index);  
+  
+        function nextSlide(n) {  
+            displaySlides(slide_index += n);  
+        }  
+  
+        function currentSlide(n) {  
+            displaySlides(slide_index = n);  
+        }  
+  
+        function displaySlides(n) {  
+            var i;
+            var slidesToShow = 3;
+            var slides = document.getElementsByClassName("showSlide");  
+            if (n > slidesToShow) { slide_index = 1 }  
+            if (n < 1) { slide_index = slidesToShow }  
+            for (i = 0; i < slidesToShow; i++) {  
+                slides[i].style.display = "none";  
+            }  
+            slides[slide_index - 1].style.display = "block";  
+        }  
+    </script>
 
 <footer class="container-fluid text-center">
   <a href="http://localhost:9001/aboutus">Developed by team HISSS</a>

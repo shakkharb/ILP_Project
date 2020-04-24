@@ -49,13 +49,13 @@
                   }  
             .showSlide img {  
                 width: 100%; 
-                max-height: 200px;
-                max-width: 400px;
+                min-height: 200px;
+                min-width: 400px;
             }  
         .slidercontainer {  
           width: 100%; 
-            max-width: 400px; 
-            max-height: 200px; 
+            min-width: 400px; 
+            min-height: 200px; 
             position: relative;
             margin: auto;  
         }  
@@ -88,6 +88,15 @@
             width: 100%;  
             text-align: center;  
         } 
+        .content2 {  
+          color: #eff5d4;  
+          font-size: 26px;  
+          padding: 80px 12px;  
+          position: absolute;  
+          bottom: 100px; 
+          width: 100%;  
+          text-align: center;  
+      }
         .description {  
             color: black;  
             font-size: 14px;  
@@ -118,8 +127,9 @@
 
         /* Add a gray background color and some padding to the footer */
         footer {
-      background-color: #f2f2f2;
+          background-color: #f2f2f2;
       padding: 25px;
+      margin-top: 200px;
       position:relative;
        bottom:0;
        width: 100%;
@@ -163,7 +173,7 @@
             <a href=<%=post.url %>> 
                 <img src=<%=post.urltoimage %> </a>
             <div class="content"><%=post.title %> </div> <br>
-            <div class="description"><%=post.description %> </div> 
+            <div class="content2"><%=post.description %> </div> 
         </div>  
         <%});%>
 
@@ -172,9 +182,25 @@
         <a class="right" onclick="nextSlide(1)">❯</a>  
         
         
-    </article>  
+    </article> 
+    <div class="container" style="padding:4%">
+    <% posts.forEach(function(post){ %>
+      <div class="col-sm-4 d-flex align-items-stretch">
+      <div class="card" style="width:100%; padding-bottom: 20px;">
+        <img class="card-img-top" style="width: 100%" src=<%=post.urltoimage %> alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title"><%=post.title %></h4>
+          <p class="card-text">Published: <%= post.createdOn %></p>
+          <br>
+          <p class="card-subtitle text-truncate"><%=post.description %>.</p>
+          <a href="#" class="btn btn-primary">Read more..</a>
+        </div>
+      </div>
+      </div>
+    <%});%>
+    </div>
 
-    <div class="w3-panel w3-border w3-border-red", class="bottom">
+    <!-- <div class="w3-panel w3-border w3-border-red", class="bottom">
 
       <h3 style="text-align: center;"><b>Latest News</b></h3>
         
@@ -185,7 +211,7 @@
                 <li>  <%= post.description %></li>
         </ul>
                 <%});%>      
-    </div>
+    </div> -->
 
     
   

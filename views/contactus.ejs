@@ -5,7 +5,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+  <style>
+  
+  </style>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -44,7 +46,8 @@
   footer {
     background-color: #f2f2f2;
       padding: 25px;
-      position:absolute;
+      margin-top: 200px;
+      position:relative;
        bottom:0;
        width: 100%;
   }
@@ -55,22 +58,37 @@
     
     <head><h1>Contact Us</h1></head>
     <body style="text-align: center;">
-        <form method="POST">
+        <!-- <form method="POST">
             <p>
                 <label>
-                    Email
+    
                     <input type="text" placeholder="email" name="qemail"/>
                 </label>
             </p>
             <p>
                 <label>
-                    Query
-                    <textarea type="text" placeholder="query" name="query"></textarea>
+                    
+                    <textarea type="text" placeholder="Query" name="query"></textarea>
                 </label>
             </p>
                         <br>
             <button type="submit">SUBMIT</button><button type="reset">RESET</button>
+        </form> -->
+
+        <form method="POST" style="padding: 10%">
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" placeholder="Enter email" name="qemail">
+          </div>
+          <div class="form-group">
+            <label for="query">Concern:</label>
+            <textarea type="text" class="form-control" rows="6" placeholder="Ask your question here.." name="query"></textarea>
+          </div>
+          <button type="reset" class="btn btn-primary" style="width: 20%">Reset</button>
+          <button type="submit" class="btn btn-primary" style="width: 20%">Submit</button>
+          
         </form>
+        <br><br><br>
     </body>
     <footer class="container-fluid text-center">
       <a href="http://localhost:9001/aboutus">Developed by team HISSS</a>

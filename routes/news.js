@@ -21,7 +21,6 @@ Router.post("/", (req, res)=>{
             const News = new NewsModel({
                 title : req.body.title.trim(),
                 description : req.body.description.trim(),
-                url : req.body.url.trim(),
                 urltoimage : req.body.urltoimage.trim()
             })
             News.save();
